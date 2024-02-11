@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllProducts } from "../../api";
 import Product from "../Product/Product";
+import { ProductsBarchart } from "../BarCharts/ProductsBarchart";
 
 // komponent wykonujący metodę pobierania danych
 const Products = () => { // komponenty z dużej litery
@@ -27,7 +28,13 @@ const Products = () => { // komponenty z dużej litery
     return (
         <>
             <h2 className="text-xl font-bold"> moje produkty: </h2>
-            {products.map((item) => (
+
+            <ProductsBarchart 
+                titles = {products.map(item => item.title)}
+                prices = {products.map(item => item.price)}
+            />
+
+            {/* {products.map((item) => (
                 <Product 
                     title = {item.title}
                     price = {item.price}
@@ -35,7 +42,7 @@ const Products = () => { // komponenty z dużej litery
                     brand = {item.brand}
                     category = {item.category}
                 />
-            ))}
+            ))} */}
         </>
     )
 };
