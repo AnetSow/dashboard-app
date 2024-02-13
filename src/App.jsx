@@ -4,7 +4,7 @@ function App() {
 
   return (
     <> {/* wywołanie komponentu Reactowego zawierającego 1 element HTML i 1 komponenet reactowy*/}
-      <h1 className="text-3xl font-bold underline"> Hello Diunka! </h1>
+      <h1 className="text-3xl font-bold"> Dynamic charts </h1>
       <Products/> {/* tworzy komponent Products */}
     </>
   )

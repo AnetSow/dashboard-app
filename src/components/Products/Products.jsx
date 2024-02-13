@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getAllProducts } from "../../api";
 import Product from "../Product/Product";
 import { ProductsBarchart } from "../BarCharts/ProductsBarchart";
+import { ProductsDoughnutchart } from "../DoughnutCharts/ProductsDoughnutchart";
 
 // komponent wykonujący metodę pobierania danych
 const Products = () => { // komponenty z dużej litery
@@ -25,14 +26,24 @@ const Products = () => { // komponenty z dużej litery
     } 
     // title, price, rating, brand, category
 
-    return (
+    return (          
         <>
-            <h2 className="text-xl font-bold"> moje produkty: </h2>
+            <div style={{height:"60vh",position:"relative", marginBottom:"1%", padding:"1%"}}>
+                <h2 className="text-xl font-italic"> Prices of all products </h2>      
+                    <ProductsBarchart 
+                        titles = {products.map(item => item.title)}
+                        prices = {products.map(item => item.price)}
+                    />
+            </div>
+            
 
-            <ProductsBarchart 
-                titles = {products.map(item => item.title)}
-                prices = {products.map(item => item.price)}
-            />
+            <div style={{height:"500px",position:"relative", marginBottom:"1%", padding:"1%"}}>
+                <h2 className="text-xl font-italic"> Product categories </h2>  
+                    <ProductsDoughnutchart 
+                        categories = {products.map(item => item.category)}
+                    />
+            </div>
+
 
             {/* {products.map((item) => (
                 <Product 

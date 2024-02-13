@@ -15,19 +15,19 @@ ChartJS.register(
     BarElement,
     Title,
     Tooltip,
-    Legend
+    // Legend
   );
 
 export const ProductsBarchart = (props) => {
 
-    const { titles, prices} = props
+    const { titles, prices } = props
 
     const options = {
         responsive: true,
         plugins: {
-          legend: {
-            position: 'top',
-          },
+        //   legend: {
+        //     position: 'top',
+        //   },
           title: {
             display: true,
             text: 'Prices for products',
@@ -47,6 +47,7 @@ export const ProductsBarchart = (props) => {
       
     return(
         < Bar options={options} data={data} />
+    
     )
 }
 
